@@ -1,0 +1,64 @@
+ <!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Google Geocoder</title>
+<style>
+body,
+body * {
+	margin:0;
+	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.buscador {
+	text-align:center;
+	padding:30px 0px;
+}
+
+.buscador #direccion {
+	margin:10px auto;
+	width:100%;
+	padding:7px;
+	max-width:250px;
+}
+
+.buscador #buscar {
+	margin:0 auto;
+	max-width:250px;
+	}
+
+.buscador #buscar {
+	margin:0 auto;
+	max-width:250px;
+	padding:7px;
+	color:#FFFFFF;
+	background:#f2777a;
+	border:2px solid #f2777a;
+	cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="buscador">
+	<h2>Ingrese una dirección</h2>
+    <input type="text" id="direccion">
+    <div id="buscar">Buscar</div>
+</div>
+
+<div id="mapa-geocoder" class="mapa" style="width:100%;display:block;position:absolute;background:#f2777a;"></div>
+
+<script src="assets/js/jquery-2.1.0.min.js"></script>
+<script>
+$(document).ready(function() {
+	$(window).on("load resize", function() {
+		var alturaBuscador = $(".buscador").outerHeight(true),
+			alturaVentana = $(window).height(),
+			alturaMapa = alturaVentana - alturaBuscador;
+		
+		$("#mapa-geocoder").css("height", alturaMapa+"px");
+	});
+});
+</script>
+</body>
+</html>
